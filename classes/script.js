@@ -42,3 +42,29 @@ class Client extends Person {
 
 const john = new Client("John", "john@example.com", "010-0000-0000", "서울");
 john.introduce(); // Hello my name is John
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+
+  present() {
+    return "I have a" + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    // 자식 클래스 내에서 부모 클래스의 생성자를 호출할 때 사용.
+    super(brand);
+    this.model = mod;
+  }
+
+  show() {
+    // 자식 클래스 내에서 부모 클래스의 메소드를 호출할 때 사용.
+    return super.present() + ", it is a" + this.model;
+  }
+}
+
+let myCar = new Model("Ford", "Mustang");
+myCar.show(); // I have a Ford, it is a Mustang
